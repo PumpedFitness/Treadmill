@@ -2,7 +2,7 @@ import type { CapacitorConfig } from '@capacitor/cli';
 
 const config: CapacitorConfig = {
   appId: 'app.pumped.treadmill',
-  appName: 'Treadmill',
+  appName: 'Pumped',
   webDir: 'dist',
   server: {
     url: "http://localhost:5173",
