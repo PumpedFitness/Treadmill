@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">treadmill</string>
+    <string name="title_activity_main">treadmill</string>
+    <string name="package_name">app.pumped.treadmill</string>
+    <string name="custom_url_scheme">app.pumped.treadmill</string>
+</resources>
