@@ -4,11 +4,14 @@ PODS:
   - CapacitorCordova (7.2.0)
   - CapacitorPluginSafeArea (4.0.0):
     - Capacitor
+  - CapacitorPreferences (7.0.1):
+    - Capacitor
 
 DEPENDENCIES:
   - "Capacitor (from `../../node_modules/@capacitor/ios`)"
   - "CapacitorCordova (from `../../node_modules/@capacitor/ios`)"
   - CapacitorPluginSafeArea (from `../../node_modules/capacitor-plugin-safe-area`)
+  - "CapacitorPreferences (from `../../node_modules/@capacitor/preferences`)"
 
 EXTERNAL SOURCES:
   Capacitor:
@@ -17,12 +20,15 @@ EXTERNAL SOURCES:
     :path: "../../node_modules/@capacitor/ios"
   CapacitorPluginSafeArea:
     :path: "../../node_modules/capacitor-plugin-safe-area"
+  CapacitorPreferences:
+    :path: "../../node_modules/@capacitor/preferences"
 
 SPEC CHECKSUMS:
   Capacitor: 03bc7cbdde6a629a8b910a9d7d78c3cc7ed09ea7
   CapacitorCordova: 5967b9ba03915ef1d585469d6e31f31dc49be96f
   CapacitorPluginSafeArea: 22031c3436269ca80fac90ec2c94bc7c1e59a81d
+  CapacitorPreferences: 6c98117d4d7508034a4af9db64d6b26fc75d7b94
 
-PODFILE CHECKSUM: 4db87a816bf1831ee790e2fb15cf756c8ab9c988
+PODFILE CHECKSUM: aaeaf5464f45fcabba545bbbcaecd8b56b0c2a1f
 
 COCOAPODS: 1.16.2

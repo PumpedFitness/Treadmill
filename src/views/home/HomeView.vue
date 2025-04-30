@@ -1,11 +1,13 @@
 <script setup lang="ts">
+
 </script>
 
 <template>
-  <div class="flex flex-col flex-1 bg-base-100 w-screen">
-    <RouterView/>
+  <div>
+
   </div>
 </template>
 
 <style scoped>
+
 </style>
