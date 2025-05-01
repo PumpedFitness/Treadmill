@@ -3,8 +3,10 @@
 </script>
 
 <template>
-  <div>
-    <p>this is the home</p>
+  <div class="flex flex-1 justify-center items-center">
+
+    <slot/>
+
   </div>
 </template>
 

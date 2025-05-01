@@ -1,5 +1,20 @@
 <script setup lang="ts">
 
+import { isBackendReachable } from '@/util/axios.ts'
+import router from '@/router'
+import { onMounted } from 'vue'
+
+const pingBackend = async () => {
+  const backendReachable = await isBackendReachable()
+
+  if (backendReachable) {
+    await router.push("/")
+  }
+}
+
+onMounted(() => {
+  setInterval(pingBackend, 5000)
+})
 </script>
 
 <template>

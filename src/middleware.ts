@@ -1,11 +1,15 @@
 import type { NavigationGuardReturn, RouteLocationNormalizedGeneric } from 'vue-router'
 import { isBackendReachable } from '@/util/axios.ts'
+import { useUserStore } from '@/stores/user-store.ts'
 
 const requiresNetworkConnection = [ "home" ]
+const requiresAuth = [ "home" ]
 
 export const middleware = async (to: RouteLocationNormalizedGeneric, from: RouteLocationNormalizedGeneric): Promise<NavigationGuardReturn> => {
 
-  if (requiresNetworkConnection.includes(to.name?.toString() ?? "")) {
+  const routeTo = to.name?.toString() ?? ""
+
+  if (requiresNetworkConnection.includes(routeTo)) {
     const hasBackendConnection = await isBackendReachable()
 
     if (!hasBackendConnection) {
@@ -13,6 +17,12 @@ export const middleware = async (to: RouteLocationNormalizedGeneric, from: Route
     }
   }
 
+  if (requiresAuth.includes(routeTo)) {
+    const user = await useUserStore().loadUser()
 
+    if (user === null) {
+     return { name: "login" }
+    }
+  }
 
 }

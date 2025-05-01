@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
 @import "tailwindcss";
 @plugin "daisyui" {
   themes: "all"
@@ -10,6 +11,8 @@ body {
   padding-bottom: env(safe-area-inset-bottom);
   padding-left: env(safe-area-inset-left);
   padding-right: env(safe-area-inset-right);
+  --font-roboto: "Roboto", sans-serif;
+  font-family: "Roboto Light", sans-serif;
 }
 
 #app {
