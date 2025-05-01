@@ -4,6 +4,10 @@
   themes: "all"
 }
 
+@theme {
+  --breakpoint-2xs: 15rem;
+}
+
 
 body {
   @apply bg-base-100 text-base-content;
