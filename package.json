@@ -14,17 +14,24 @@
   },
   "dependencies": {
     "@capacitor/android": "^7.2.0",
+    "@capacitor/assets": "^3.0.5",
     "@capacitor/cli": "^7.2.0",
     "@capacitor/core": "^7.2.0",
     "@capacitor/ios": "^7.2.0",
+    "@capacitor/local-notifications": "^7.0.1",
+    "@capacitor/preferences": "^7.0.1",
     "@iconify/vue": "^4.3.0",
     "@tailwindcss/vite": "^4.1.4",
+    "@vee-validate/zod": "^4.15.0",
+    "axios": "^1.9.0",
     "capacitor-plugin-safe-area": "^4.0.0",
     "daisyui": "^5.0.28",
     "install": "^0.13.0",
     "pinia": "^3.0.1",
+    "vee-validate": "^4.15.0",
     "vue": "^3.5.13",
-    "vue-router": "^4.5.0"
+    "vue-router": "^4.5.0",
+    "zod": "^3.24.3"
   },
   "devDependencies": {
     "@tsconfig/node22": "^22.0.1",
