@@ -11,8 +11,7 @@
   </div>
 </template>
 
-<style scoped>
-
+<style>
 .slide-left-enter-active,
 .slide-left-leave-active {
   transition: transform 0.3s ease, opacity 0.2s ease;

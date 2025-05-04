@@ -19,3 +19,10 @@ export const transformFieldErrors = (fields: ServerFieldError[]): Record<string,
     return acc
   }, {} as Record<string, string>)
 }
+
+export function toTitleCase(str: string): string {
+  return str.replace(
+    /\w\S*/g,
+    text => text.charAt(0).toUpperCase() + text.substring(1).toLowerCase()
+  );
+}

@@ -9,7 +9,6 @@ export const middleware = async (to: RouteLocationNormalizedGeneric, from: Route
 
   const routeTo = to.name?.toString() ?? ""
 
-  /*
   if (requiresNetworkConnection.includes(routeTo)) {
     const hasBackendConnection = await isBackendReachable()
 
@@ -18,14 +17,16 @@ export const middleware = async (to: RouteLocationNormalizedGeneric, from: Route
     }
   }
 
-   */
-
   if (requiresAuth.includes(routeTo)) {
     const user = await useUserStore().loadUser()
 
     if (user === null) {
      return { name: "login" }
     }
+  }
+
+  if (routeTo === "root") {
+    return { name: "home" }
   }
 
 }

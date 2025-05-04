@@ -3,7 +3,6 @@
 import { useUser } from '@/hooks/useUser.ts'
 import { onMounted, ref } from 'vue'
 import type { User } from '@/types/user.ts'
-import AppLayout from '@/layouts/AppLayout.vue'
 
 const user = ref<User | null>(null)
 
@@ -14,10 +13,7 @@ onMounted(async () => {
 </script>
 
 <template>
-  <AppLayout>
-    <p>this is the home</p>
-    <p>Welcome back {{user?.username ?? "gooner"}}</p>
-  </AppLayout>
+  <p class="text-center">Willkommen {{ user?.username }}</p>
 </template>
 
 <style scoped>

@@ -4,14 +4,33 @@ import HomeView from '@/views/home/HomeView.vue'
 import MaintenanceModeView from '@/views/common/MaintenanceModeView.vue'
 import LoginView from '@/views/auth/LoginView.vue'
 import RegisterView from '@/views/auth/RegisterView.vue'
+import DebugView from '@/views/debug/DebugView.vue'
+import AppLayout from '@/layouts/AppLayout.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     {
       path: "/",
-      name: "home",
-      component: HomeView
+      name: "root",
+      component: AppLayout,
+      children: [
+        {
+          path: "/training",
+          name: "Training",
+          component: HomeView
+        },
+        {
+          path: "/home",
+          name: "home",
+          component: HomeView
+        },
+        {
+          path: "/debug",
+          name: "debug",
+          component: DebugView
+        },
+      ]
     },
     {
       path: "/maintenance",
@@ -27,7 +46,7 @@ const router = createRouter({
       path: "/auth/register",
       name: "register",
       component: RegisterView
-    }
+    },
   ],
 })
 
