@@ -9,7 +9,7 @@ defineProps<{
 
 <template>
   <template v-if="isLoading">
-    <button class="btn">
+    <button class="btn btn-disabled">
       <span class="loading loading-spinner"/>
       <slot/>
     </button>

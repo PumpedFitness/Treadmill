@@ -29,7 +29,7 @@ const onSubmit = getSubmitFn(signUpSchema, async (values, ctx) => {
   const result = await loginUser(values.email, values.password)
 
   if (result !== null) {
-    await router.push("/")
+    await router.push("/home")
   }
 })
 </script>
