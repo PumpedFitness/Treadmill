@@ -1,21 +1,23 @@
 import { LocalNotifications } from '@capacitor/local-notifications'
 
-export const sampleNotification = async () => {
-
+const notificationPrerequisites = async () => {
   const permissionStatus = await LocalNotifications.checkPermissions()
 
   if (permissionStatus.display !== "granted") {
     await LocalNotifications.requestPermissions()
   }
+}
 
-  console.log("scheduling notification")
-  const not = await LocalNotifications.schedule({
+export const notifyNow = async (title: string, body: string) => {
+  await notificationPrerequisites()
+
+  await LocalNotifications.schedule({
     notifications: [
       {
-        title: "Goonhub",
-        body: "Your goonbodies are waiting for you. Join now for the 42th Circlejerk this month!",
+        title,
+        body,
         id: 1,
-        schedule: { at: new Date(Date.now() + 1000) }
+        schedule: { at: new Date(Date.now() + 1) }
       }
     ]
   })

@@ -1,28 +1,38 @@
 <script setup lang="ts">
-
 import Button from '@/components/common/Button.vue'
-import { sampleNotification } from '@/util/notifications.ts'
+import { notifyNow } from '@/util/notifications.ts'
 import { useUserStore } from '@/stores/user-store.ts'
 import router from '@/router'
-import { ref, watch } from 'vue'
-import { useWebsocket } from '@/util/websocket.ts'
+import type { BBWebsocket } from '@/util/websocket.ts'
+import { inject } from 'vue'
+import { buildAction } from '@/types/action.ts'
 
-const websocketResponse = ref<string[]>([])
-const websocketStatus = ref()
+
+const websocket = inject<BBWebsocket>('websocket')
 
 const sendNotification = () => {
-  sampleNotification()
+  notifyNow("Yippiii!", "this is working")
 }
 
 const logout = () => {
   useUserStore().storeUser(null)
-  router.push({ name: "login" })
+  router.push({ name: 'login' })
 }
 
-const connectWithWebsocket = () => {
-  const { status } = useWebsocket()
-  websocketStatus.value = status.value
+const sendActionToWS = () => {
+  console.log("sending action now!")
+  websocket?.sendWithReceive(buildAction({}, "/api/v1/me"), (notification) => {
+    console.log("Received", notification)
+    notifyNow("Yippiii!", JSON.stringify(notification))
+  })
 }
+
+websocket?.onReceive("debug", () => {
+  console.log("here")
+  notifyNow("Yippiii!", "This has worked")
+})
+
+
 
 </script>
 
@@ -31,14 +41,10 @@ const connectWithWebsocket = () => {
     <p>Devins super duper debug menu</p>
     <Button @click="sendNotification">Create notification</Button>
     <Button @click="logout" class="btn-error">Logout</Button>
-    <Button @click="connectWithWebsocket" class="btn-warning">Connect to websocket</Button>
-    <span class="alert alert-warning">{{ websocketStatus }}</span>
-    <p>Websocket response:</p>
-    <span v-for="message in websocketResponse" :key="message" class="alert alert-warning">{{ message }}</span>
+    <span class="alert alert-warning">Websocket {{ websocket?.status }}</span>
+    <Button @click="sendActionToWS">Send sample Action to Websocket</Button>
 
   </div>
 </template>
 
-<style scoped>
-
-</style>
+<style scoped></style>
