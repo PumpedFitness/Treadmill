@@ -8,17 +8,8 @@ export type Action = {
 
 export const buildAction = (action: object, path: string): Action => {
 
-  if (!('data' in action)) {
-    return {
-      ...action,
-      id: uuidv4(),
-      data: {},
-      path
-    }
-  }
-
   return {
-    ...action,
+    data: action,
     id: uuidv4(),
     path
   }

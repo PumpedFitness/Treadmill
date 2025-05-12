@@ -8,6 +8,9 @@ const config: CapacitorConfig = {
     PushNotifications: {
       presentationOptions: ["badge", "sound", "alert"],
     },
+    "CapacitorCookies": {
+      "enabled": true
+    }
   },
   "server": {
     "url": "http://localhost:5173",

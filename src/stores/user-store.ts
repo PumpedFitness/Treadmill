@@ -13,6 +13,9 @@ export const useUserStore = defineStore("user", () => {
       return null
     }
 
+    const user = JSON.parse(storedUser.value) as User
+    document.cookie = "bb_session_token=" + user.token
+
     return JSON.parse(storedUser.value)
   }
 
