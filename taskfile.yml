@@ -1,0 +1,7 @@
+version: 3
+
+tasks:
+  ios:
+    cmds:
+      - "bun run build"
+      - "bunx cap run ios"
